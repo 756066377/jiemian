@@ -5,8 +5,9 @@
 ![Tauri](https://img.shields.io/badge/Tauri-2.0-FFC131?logo=tauri)
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript)
+![DaisyUI](https://img.shields.io/badge/DaisyUI-5.5-FFC131?logo=daisyui)
 
-一个基于 Tauri + React + TypeScript 开发的国产钢材型号查询系统，提供全面的型钢数据查询、过滤和详细规格展示功能。
+一个基于 Tauri + React + TypeScript 开发的国产钢材型号查询系统，提供全面的型钢数据查询、过滤、详细规格展示和钢板展开计算功能。
 
 ## 📋 项目简介
 
@@ -18,6 +19,7 @@
 - **智能筛选**：支持按型号搜索、分类筛选、规格筛选
 - **详细参数展示**：提供完整的尺寸、重量、截面特性等参数
 - **H 型钢计算器**：内置截面特性计算工具
+- **钢板展开计算器**：支持经验扣除法和 K-Factor 法两种计算模式
 - **现代化界面**：采用玻璃态设计风格，美观易用
 
 ## ✨ 功能特性
@@ -52,6 +54,25 @@
 - 📉 参数调整预览
 - 📋 结果导出功能
 
+### 5. 钢板展开计算器
+
+- 📐 **两种计算模式**
+  - 经验扣除法：基于实际生产经验，快速计算展开长度
+  - K-Factor 法：基于折弯补偿理论，精确计算展开长度
+- 📏 **支持两种模板类型**
+  - L 型钢板（一个折弯）
+  - U 型钢板（两个折弯）
+- 🎯 **材质数据库**
+  - 内置 5mm 碳钢、10mm 碳钢等常用材质扣除值
+  - 支持不锈钢、铝板等自定义扣除值
+- 📊 **折弯参数设置**
+  - 折弯角度、内圆角半径、K 因子灵活配置
+  - 实时显示计算公式和明细
+- 🎨 **可视化预览**
+  - SVG 实时预览钢板展开图
+  - 蓝色标注正面，灰色标注背面
+  - 字母标注 A/B/C 边长位置
+
 ## 🚀 技术栈
 
 ### 前端技术
@@ -60,6 +81,7 @@
 - **TypeScript 5.8** - 类型安全
 - **Vite 7** - 构建工具
 - **Tailwind CSS 3.4** - 样式框架
+- **DaisyUI 5.5** - UI 组件库
 - **Lucide React** - 图标库
 
 ### 桌面框架
@@ -124,9 +146,22 @@ npm run tauri build
 
 ### 3. 使用计算器
 
+#### H 型钢计算器
+
 1. 选择任意 H 型钢型号
 2. 点击「打开计算器」按钮
 3. 调整参数查看实时计算结果
+
+#### 钢板展开计算器
+
+1. 在左侧导航选择「钢板展开计算器」
+2. 选择计算模式：
+   - **经验扣除法**：适用于快速计算，选择材质即可
+   - **K-Factor 法**：适用于精确计算，需要设置折弯参数
+3. 设置模板类型（L 型 / U 型）
+4. 输入边长（A/B/C）和板厚
+5. 根据需要选择折弯方向
+6. 查看实时计算结果和 SVG 预览
 
 ## 🏗️ 项目结构
 
@@ -134,11 +169,12 @@ npm run tauri build
 jiemian/
 ├── src/                    # 源代码
 │   ├── components/         # React 组件
-│   │   ├── Header.tsx      # 顶部标题栏
-│   │   ├── Sidebar.tsx     # 左侧导航
-│   │   ├── FilterBar.tsx   # 筛选栏
-│   │   ├── ModelList.tsx   # 型号列表
-│   │   ├── DetailView.tsx  # 详情视图
+│   │   ├── Header.tsx                # 顶部标题栏
+│   │   ├── Sidebar.tsx               # 左侧导航
+│   │   ├── FilterBar.tsx             # 筛选栏
+│   │   ├── ModelList.tsx             # 型号列表
+│   │   ├── DetailView.tsx            # 详情视图
+│   │   ├── SteelExpansionCalculator.tsx # 钢板展开计算器
 │   │   └── ...
 │   ├── data/               # 钢材数据
 │   │   ├── hbeamData.ts
@@ -148,7 +184,9 @@ jiemian/
 │   │   ├── unequalAngleData.ts
 │   │   └── flatSteelData.ts
 │   ├── types/              # TypeScript 类型定义
+│   │   └── steelExpansion.ts          # 钢板展开计算类型
 │   └── utils/              # 工具函数
+│       └── steelExpansionCalculation.ts # 展开计算算法
 ├── src-tauri/              # Tauri 后端
 ├── 国标数据/               # 原始 JSON 数据
 ├── public/                 # 静态资源
@@ -198,6 +236,24 @@ jiemian/
 - GitHub Issues: [项目 Issues 页面](https://github.com/yourusername/jiemian/issues)
 
 ## 🔄 更新日志
+
+### v0.2.0 (2025-12-26)
+
+- ✨ 新增钢板展开计算器
+  - 支持经验扣除法和 K-Factor 法两种计算模式
+  - 支持 L 型和 U 型钢板计算
+  - 内置常用材质扣除值数据库
+  - SVG 实时预览功能
+- 🎨 集成 DaisyUI 组件库
+  - 统一使用 DaisyUI 的按钮、输入框、下拉框组件
+  - 优化整体 UI 视觉效果和交互体验
+- 🔧 优化 K-Factor 计算算法
+  - 修正折弯补偿计算公式
+  - 完善内尺寸计算逻辑
+  - 增强计算明细展示
+- 📱 改进按钮布局和文字显示
+  - 调整按钮长度确保文字完整显示
+  - 优化深色主题配色方案
 
 ### v0.1.0 (2024-12-26)
 

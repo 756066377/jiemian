@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect, useCallback } from 'react';
-import { Header, Sidebar, FilterBar, ModelList, DetailView, HBeamCalculatorModal } from './components';
+import { Header, Sidebar, FilterBar, ModelList, DetailView, HBeamCalculatorModal, SteelExpansionCalculator } from './components';
 import { hbeamData } from './data/hbeamData';
 import { flatSteelData } from './data/flatSteelData';
 import { equalAngleData } from './data/equalAngleData';
@@ -184,31 +184,40 @@ function App() {
           onCategoryChange={setSelectedCategory} 
         />
         <main className="flex-1 flex flex-col min-w-0 bg-[#0b1219]/50 overflow-hidden relative">
-          {/* Model Selection & Filters Header */}
-          <div className="p-6 pb-2 shrink-0">
-            <FilterBar
-              searchQuery={searchQuery}
-              onSearchChange={setSearchQuery}
-              filterType={filterType as Category | SteelFilterCategory}
-              onFilterChange={setFilterType}
-              steelCategory={selectedCategory}
-              flatSteelWidthFilter={flatSteelWidthFilter}
-              onFlatSteelWidthChange={setFlatSteelWidthFilter}
-              angleTypeFilter={angleTypeFilter}
-              onAngleTypeChange={setAngleTypeFilter}
-            />
-          </div>
-          {/* Content Split: List & Detail */}
-          <div className="flex-1 flex overflow-hidden px-6 pb-6 gap-6">
-            <ModelList
-              models={filteredModels}
-              selectedId={selectedId}
-              onModelSelect={setSelectedId}
-              steelCategory={selectedCategory}
-              getItemId={getItemId}
-            />
-            <DetailView data={selectedData} onOpenCalculator={() => setIsCalculatorOpen(true)} />
-          </div>
+          {/* 钢板展开计算器 */}
+          {selectedCategory === 'steel_expansion_calculator' ? (
+            <div className="p-6 overflow-hidden h-full">
+              <SteelExpansionCalculator />
+            </div>
+          ) : (
+            <>
+              {/* Model Selection & Filters Header */}
+              <div className="p-6 pb-2 shrink-0">
+                <FilterBar
+                  searchQuery={searchQuery}
+                  onSearchChange={setSearchQuery}
+                  filterType={filterType as Category | SteelFilterCategory}
+                  onFilterChange={setFilterType}
+                  steelCategory={selectedCategory}
+                  flatSteelWidthFilter={flatSteelWidthFilter}
+                  onFlatSteelWidthChange={setFlatSteelWidthFilter}
+                  angleTypeFilter={angleTypeFilter}
+                  onAngleTypeChange={setAngleTypeFilter}
+                />
+              </div>
+              {/* Content Split: List & Detail */}
+              <div className="flex-1 flex overflow-hidden px-6 pb-6 gap-6">
+                <ModelList
+                  models={filteredModels}
+                  selectedId={selectedId}
+                  onModelSelect={setSelectedId}
+                  steelCategory={selectedCategory}
+                  getItemId={getItemId}
+                />
+                <DetailView data={selectedData} onOpenCalculator={() => setIsCalculatorOpen(true)} />
+              </div>
+            </>
+          )}
         </main>
       </div>
 

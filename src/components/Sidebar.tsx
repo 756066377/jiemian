@@ -10,6 +10,10 @@ export function Sidebar({ selectedCategory, onCategoryChange }: {
     { id: 'hot_rolled_i_beam', name: '热轧工字钢', sub: 'I-Beam', icon: 'view_week' },
   ];
 
+  const tools = [
+    { id: 'steel_expansion_calculator', name: '钢板展开计算', sub: 'Expansion Calculator', icon: 'architecture' },
+  ];
+
   return (
     <aside className="w-64 glass-panel border-r border-glass-border flex flex-col z-10 hidden md:flex">
       <div className="p-4 pb-2">
@@ -33,6 +37,32 @@ export function Sidebar({ selectedCategory, onCategoryChange }: {
               <div className="text-left">
                 <p className="text-sm font-medium">{cat.name}</p>
                 <p className="text-[10px] opacity-60">{cat.sub}</p>
+              </div>
+            </button>
+          ))}
+        </div>
+
+        {/* 工具区域 */}
+        <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-6 mb-3 px-2">
+          工具 (Tools)
+        </p>
+        <div className="space-y-1">
+          {tools.map((tool) => (
+            <button
+              key={tool.id}
+              onClick={() => onCategoryChange(tool.id)}
+              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group ${
+                selectedCategory === tool.id
+                  ? 'active-nav-item'
+                  : 'hover:bg-white/5 text-slate-400 hover:text-white'
+              }`}
+            >
+              <span className="material-symbols-outlined text-xl group-hover:scale-110 transition-transform duration-200">
+                {tool.icon}
+              </span>
+              <div className="text-left">
+                <p className="text-sm font-medium">{tool.name}</p>
+                <p className="text-[10px] opacity-60">{tool.sub}</p>
               </div>
             </button>
           ))}

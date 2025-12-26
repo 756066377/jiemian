@@ -1,7 +1,7 @@
 {
   "name": "jiemian",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -22,6 +22,7 @@
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.6.0",
     "autoprefixer": "^10.4.20",
+    "daisyui": "^5.5.14",
     "postcss": "8.5",
     "tailwind-merge": "^2.5.5",
     "tailwindcss": "^3.4.17",
