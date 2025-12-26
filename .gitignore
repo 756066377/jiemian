@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Project specific files
+国标数据/
+UI原型/
+.codebuddy/
+release_data.json
+RELEASE_NOTES.md
