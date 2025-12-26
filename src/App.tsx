@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect, useCallback } from 'react';
-import { Header, Sidebar, FilterBar, ModelList, DetailView, HBeamCalculatorModal, SteelExpansionCalculator, DeveloperCard } from './components';
+import { Header, Sidebar, FilterBar, ModelList, DetailView, HBeamCalculatorModal, SteelExpansionCalculator } from './components';
+import DeveloperCard from './components/DeveloperCard';
 import { hbeamData } from './data/hbeamData';
 import { flatSteelData } from './data/flatSteelData';
 import { equalAngleData } from './data/equalAngleData';
