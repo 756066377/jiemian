@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect, useCallback } from 'react';
-import { Header, Sidebar, FilterBar, ModelList, DetailView, HBeamCalculatorModal, SteelExpansionCalculator } from './components';
+import { Header, Sidebar, FilterBar, ModelList, DetailView, HBeamCalculatorModal, SteelExpansionCalculator, DeveloperCard } from './components';
 import { hbeamData } from './data/hbeamData';
 import { flatSteelData } from './data/flatSteelData';
 import { equalAngleData } from './data/equalAngleData';
@@ -225,6 +225,9 @@ function App() {
         isOpen={isCalculatorOpen}
         onClose={() => setIsCalculatorOpen(false)}
       />
+
+      {/* 开发者信息卡片 */}
+      <DeveloperCard />
     </div>
   );
 }

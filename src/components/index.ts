@@ -11,3 +11,4 @@ export { ChannelDiagram } from './ChannelDiagram';
 export { IBeamDiagram } from './IBeamDiagram';
 export { HBeamCalculatorModal } from './HBeamCalculatorModal';
 export { default as SteelExpansionCalculator } from './SteelExpansionCalculator';
+export { default as DeveloperCard } from './DeveloperCard';
