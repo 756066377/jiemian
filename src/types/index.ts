@@ -120,12 +120,13 @@ export interface CalculatedProperties {
 
 export type Category = 'all' | 'HW' | 'HM' | 'HN' | 'HT';
 
-export type SteelCategory = 
+export type SteelCategory =
   | 'hot_rolled_h_beam'
   | 'hot_rolled_flat_steel'
   | 'hot_rolled_equal_angle'
   | 'hot_rolled_unequal_angle'
   | 'hot_rolled_channel'
-  | 'hot_rolled_i_beam';
+  | 'hot_rolled_i_beam'
+  | 'developer_info';
 
 export type SteelFilterCategory = 'all' | 'equal' | 'unequal';

@@ -12,6 +12,7 @@ export function Sidebar({ selectedCategory, onCategoryChange }: {
 
   const tools = [
     { id: 'steel_expansion_calculator', name: '钢板展开计算', sub: 'Expansion Calculator', icon: 'architecture' },
+    { id: 'developer_info', name: '开发者信息', sub: 'Developer Info', icon: 'person' },
   ];
 
   return (
