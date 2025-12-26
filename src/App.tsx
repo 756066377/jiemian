@@ -21,6 +21,7 @@ function App() {
   const [flatSteelWidthFilter, setFlatSteelWidthFilter] = useState<number | null>(null);
   const [angleTypeFilter, setAngleTypeFilter] = useState<'equal' | 'unequal' | null>('equal');
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
+  const [isDeveloperCardOpen, setIsDeveloperCardOpen] = useState(false);
 
   // Get data based on selected category
   const currentData = useMemo(() => {
@@ -137,6 +138,10 @@ function App() {
     if (selectedCategory === 'hot_rolled_equal_angle' || selectedCategory === 'hot_rolled_unequal_angle') {
       setAngleTypeFilter('equal');
     }
+    // Open developer card when developer_info is selected
+    if (selectedCategory === 'developer_info') {
+      setIsDeveloperCardOpen(true);
+    }
   }, [selectedCategory]);
 
   // Debug: log filtered data distribution
@@ -189,11 +194,7 @@ function App() {
             <div className="p-6 overflow-hidden h-full">
               <SteelExpansionCalculator />
             </div>
-          ) : selectedCategory === 'developer_info' ? (
-            <div className="p-6 overflow-hidden h-full flex items-center justify-center">
-              <DeveloperCard />
-            </div>
-          ) : (
+          ) : selectedCategory !== 'developer_info' ? (
             <>
               {/* Model Selection & Filters Header */}
               <div className="p-6 pb-2 shrink-0">
@@ -221,7 +222,7 @@ function App() {
                 <DetailView data={selectedData} onOpenCalculator={() => setIsCalculatorOpen(true)} />
               </div>
             </>
-          )}
+          ) : null}
         </main>
       </div>
 
@@ -231,7 +232,10 @@ function App() {
       />
 
       {/* 开发者信息卡片 */}
-      <DeveloperCard />
+      <DeveloperCard
+        isOpen={isDeveloperCardOpen}
+        onClose={() => setIsDeveloperCardOpen(false)}
+      />
     </div>
   );
 }
