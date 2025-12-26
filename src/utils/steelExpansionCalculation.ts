@@ -209,49 +209,83 @@ export function calculateByKFactor(input: KFactorInput): CalculationResult {
   const radiusDeduction = input.innerRadius;
 
   let totalLength = 0;
+  const bendLines: { edge: string; position: number; calculation: string }[] = [];
 
   if (input.templateType === 'L') {
-    // L型：展开长度 = (A - R) + (B - R) + BA
-    // A' = A - R, B' = B - R（内尺寸）
-    const innerEdgeA = input.edgeA - radiusDeduction;
-    const innerEdgeB = input.edgeB! - radiusDeduction;
+    // L型：展开长度 = (A - R - T) + (B - R - T) + BA
+    // A' = A - (R + T), B' = B - (R + T)（直边长度 = 外尺寸 - 圆角半径 - 板厚）
+    const straightEdgeA = input.edgeA - radiusDeduction - input.thickness;
+    const straightEdgeB = input.edgeB! - radiusDeduction - input.thickness;
 
-    totalLength = toFixed2(innerEdgeA + innerEdgeB + bendAllowance);
+    totalLength = toFixed2(straightEdgeA + straightEdgeB + bendAllowance);
+
+    // 折弯线位置 = 直边长度 + BA/2
+    const bendLineA = toFixed2(straightEdgeA + roundedBA / 2);
+    const bendLineB = toFixed2(straightEdgeB + roundedBA / 2);
 
     breakdown.push(`外尺寸 A边：${toFixed2(input.edgeA)}mm`);
     breakdown.push(`外尺寸 B边：${toFixed2(input.edgeB!)}mm`);
-    breakdown.push(`内尺寸 A' = A - R = ${toFixed2(innerEdgeA)}mm`);
-    breakdown.push(`内尺寸 B' = B - R = ${toFixed2(innerEdgeB)}mm`);
+    breakdown.push(`直边 A' = A - (R + T) = ${toFixed2(input.edgeA)} - (${toFixed2(input.innerRadius)} + ${toFixed2(input.thickness)}) = ${toFixed2(straightEdgeA)}mm`);
+    breakdown.push(`直边 B' = B - (R + T) = ${toFixed2(input.edgeB!)} - (${toFixed2(input.innerRadius)} + ${toFixed2(input.thickness)}) = ${toFixed2(straightEdgeB)}mm`);
     breakdown.push(`折弯补偿 BA = (π × ${toFixed2(input.angle)} / 180) × (${toFixed2(input.innerRadius)} + ${toFixed2(input.kFactor)} × ${toFixed2(input.thickness)})`);
     breakdown.push(`= ${toFixed2(Math.PI * input.angle / 180)} × ${toFixed2(input.innerRadius + input.kFactor * input.thickness)}`);
     breakdown.push(`= ${toFixed2(roundedBA)}mm`);
-    breakdown.push(`展开长度 L = A' + B' + BA = ${toFixed2(innerEdgeA)} + ${toFixed2(innerEdgeB)} + ${toFixed2(roundedBA)} = ${totalLength}mm`);
-  } else {
-    // U型：展开长度 = (A - 2R) + (B - 2R) + (C - 2R) + 2 × BA
-    // A' = A - 2R, B' = B - 2R, C' = C - 2R（内尺寸，每个边有两个圆角）
-    const innerEdgeA = input.edgeA - 2 * radiusDeduction;
-    const innerEdgeB = input.edgeB! - 2 * radiusDeduction;
-    const innerEdgeC = input.edgeC! - 2 * radiusDeduction;
+    breakdown.push(`展开长度 L = A' + B' + BA = ${toFixed2(straightEdgeA)} + ${toFixed2(straightEdgeB)} + ${toFixed2(roundedBA)} = ${totalLength}mm`);
 
-    totalLength = toFixed2(innerEdgeA + innerEdgeB + innerEdgeC + 2 * bendAllowance);
+    // 折弯线距离
+    bendLines.push({
+      edge: 'A',
+      position: bendLineA,
+      calculation: `${toFixed2(straightEdgeA)} + ${toFixed2(roundedBA / 2)} = ${bendLineA}mm`
+    });
+    bendLines.push({
+      edge: 'B',
+      position: bendLineB,
+      calculation: `${toFixed2(straightEdgeB)} + ${toFixed2(roundedBA / 2)} = ${bendLineB}mm`
+    });
+  } else {
+    // U型：展开长度 = (A - 2R - T) + (B - 2R - T) + (C - 2R - T) + 2 × BA
+    // 直边长度 = 外尺寸 - 2×圆角半径 - 板厚
+    const straightEdgeA = input.edgeA - 2 * radiusDeduction - input.thickness;
+    const straightEdgeB = input.edgeB! - 2 * radiusDeduction - input.thickness;
+    const straightEdgeC = input.edgeC! - 2 * radiusDeduction - input.thickness;
+
+    totalLength = toFixed2(straightEdgeA + straightEdgeB + straightEdgeC + 2 * bendAllowance);
+
+    // 折弯线位置 = 直边长度 + BA/2
+    const bendLineA = toFixed2(straightEdgeA + roundedBA / 2);
+    const bendLineC = toFixed2(straightEdgeC + roundedBA / 2);
 
     breakdown.push(`外尺寸 A边：${toFixed2(input.edgeA)}mm`);
     breakdown.push(`外尺寸 B边：${toFixed2(input.edgeB!)}mm`);
     breakdown.push(`外尺寸 C边：${toFixed2(input.edgeC!)}mm`);
-    breakdown.push(`内尺寸 A' = A - 2R = ${toFixed2(innerEdgeA)}mm`);
-    breakdown.push(`内尺寸 B' = B - 2R = ${toFixed2(innerEdgeB)}mm`);
-    breakdown.push(`内尺寸 C' = C - 2R = ${toFixed2(innerEdgeC)}mm`);
+    breakdown.push(`直边 A' = A - (2R + T) = ${toFixed2(input.edgeA)} - (2 × ${toFixed2(input.innerRadius)} + ${toFixed2(input.thickness)}) = ${toFixed2(straightEdgeA)}mm`);
+    breakdown.push(`直边 B' = B - (2R + T) = ${toFixed2(input.edgeB!)} - (2 × ${toFixed2(input.innerRadius)} + ${toFixed2(input.thickness)}) = ${toFixed2(straightEdgeB)}mm`);
+    breakdown.push(`直边 C' = C - (2R + T) = ${toFixed2(input.edgeC!)} - (2 × ${toFixed2(input.innerRadius)} + ${toFixed2(input.thickness)}) = ${toFixed2(straightEdgeC)}mm`);
     breakdown.push(`折弯补偿 BA = (π × ${toFixed2(input.angle)} / 180) × (${toFixed2(input.innerRadius)} + ${toFixed2(input.kFactor)} × ${toFixed2(input.thickness)})`);
     breakdown.push(`= ${toFixed2(Math.PI * input.angle / 180)} × ${toFixed2(input.innerRadius + input.kFactor * input.thickness)}`);
     breakdown.push(`= ${toFixed2(roundedBA)}mm`);
-    breakdown.push(`展开长度 L = A' + B' + C' + 2 × BA = ${toFixed2(innerEdgeA)} + ${toFixed2(innerEdgeB)} + ${toFixed2(innerEdgeC)} + 2 × ${toFixed2(roundedBA)} = ${totalLength}mm`);
+    breakdown.push(`展开长度 L = A' + B' + C' + 2 × BA = ${toFixed2(straightEdgeA)} + ${toFixed2(straightEdgeB)} + ${toFixed2(straightEdgeC)} + 2 × ${toFixed2(roundedBA)} = ${totalLength}mm`);
+
+    // 折弯线距离
+    bendLines.push({
+      edge: 'A',
+      position: bendLineA,
+      calculation: `${toFixed2(straightEdgeA)} + ${toFixed2(roundedBA / 2)} = ${bendLineA}mm`
+    });
+    bendLines.push({
+      edge: 'C',
+      position: bendLineC,
+      calculation: `${toFixed2(straightEdgeC)} + ${toFixed2(roundedBA / 2)} = ${bendLineC}mm`
+    });
   }
 
   return {
     totalLength,
     breakdown,
     isValid: true,
-    warnings: warnings.filter(w => w.severity === 'warning').map(w => w.message)
+    warnings: warnings.filter(w => w.severity === 'warning').map(w => w.message),
+    bendLines
   };
 }
 

@@ -1,10 +1,10 @@
-/* DeveloperCard 3D样式 */
+/* DeveloperCard 3D样式 - 黑金银行卡风格 */
 .perspective-1000 {
   perspective: 1000px;
 }
 
 .card-3d {
-  width: 360px;
+  width: 380px;
   transform-style: preserve-3d;
   animation: float 3s ease-in-out infinite;
 }
@@ -13,21 +13,57 @@
   transform-style: preserve-3d;
   transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  /* 黑金银行卡金属质感 */
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 25%, #0d0d0d 50%, #1a1a1a 75%, #0a0a0a 100%);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(234, 179, 8, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
+/* 金色边框效果 */
 .card-content::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(19, 127, 236, 0.1) 0%, transparent 50%);
-  border-radius: 1rem;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(135deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* 金属光泽效果 */
+.card-content::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.15) 0%,
+    transparent 20%,
+    transparent 80%,
+    rgba(255, 215, 0, 0.1) 100%
+  );
+  border-radius: 16px;
   pointer-events: none;
   z-index: 1;
 }
 
 .card-3d:hover .card-content {
-  transform: rotateY(15deg) rotateX(5deg) translateZ(20px);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transform: rotateY(12deg) rotateX(5deg) translateZ(30px) scale(1.02);
+  box-shadow:
+    0 35px 60px -15px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(234, 179, 8, 0.5),
+    0 0 40px rgba(234, 179, 8, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 @keyframes float {
@@ -35,15 +71,20 @@
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
+}
+
+/* 银行卡纹理效果 */
+.card-content .bg-black\/40 {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(20, 20, 20, 0.4) 100%);
 }
 
 /* 响应式调整 */
 @media (max-width: 640px) {
   .card-3d {
     width: 90vw;
-    max-width: 360px;
+    max-width: 380px;
   }
 }
 

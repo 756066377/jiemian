@@ -1,15 +1,15 @@
 import { useState, useMemo } from 'react';
-import { 
-  CalculationMode, 
-  TemplateType, 
-  BendDirection, 
+import {
+  CalculationMode,
+  TemplateType,
+  BendDirection,
   MaterialType,
   ExperienceInput,
   KFactorInput
 } from '../types/steelExpansion';
-import { 
-  calculateByExperience, 
-  calculateByKFactor, 
+import {
+  calculateByExperience,
+  calculateByKFactor,
   validateInput,
   toFixed2
 } from '../utils/steelExpansionCalculation';
@@ -513,6 +513,28 @@ export default function SteelExpansionCalculator() {
                       </div>
                     </div>
                   </div>
+
+                  {/* 折弯线距离（仅K-Factor法显示） */}
+                  {mode === 'kfactor' && result.bendLines && result.bendLines.length > 0 && (
+                    <div className="card bg-yellow-500/10 border border-yellow-500/20">
+                      <div className="card-body p-4">
+                        <h2 className="card-title text-sm text-yellow-400 mb-3">折弯线距离</h2>
+                        <div className="space-y-2">
+                          {result.bendLines.map((line, index) => (
+                            <div key={index} className="flex justify-between items-center bg-slate-900/50 rounded px-3 py-2">
+                              <div className="text-sm text-yellow-200">
+                                <span className="font-semibold">{line.edge}边折弯线：</span>
+                                <span className="ml-2 text-primary font-mono">{line.position} mm</span>
+                              </div>
+                            </div>
+                          ))}
+                          <div className="text-xs text-slate-500 mt-2 pt-2 border-t border-slate-700">
+                            公式：折弯线距离 = 直边长度 + BA/2
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
 
                   {/* 计算明细 */}
                   <div className="card bg-white/5 border border-white/10">

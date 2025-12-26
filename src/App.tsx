@@ -138,10 +138,6 @@ function App() {
     if (selectedCategory === 'hot_rolled_equal_angle' || selectedCategory === 'hot_rolled_unequal_angle') {
       setAngleTypeFilter('equal');
     }
-    // Open developer card when developer_info is selected
-    if (selectedCategory === 'developer_info') {
-      setIsDeveloperCardOpen(true);
-    }
   }, [selectedCategory]);
 
   // Debug: log filtered data distribution
@@ -184,9 +180,10 @@ function App() {
         onClose={handleClose}
       />
       <div className="flex flex-1 overflow-hidden relative">
-        <Sidebar 
-          selectedCategory={selectedCategory} 
-          onCategoryChange={setSelectedCategory} 
+        <Sidebar
+          selectedCategory={selectedCategory}
+          onCategoryChange={setSelectedCategory}
+          onDeveloperInfoClick={() => setIsDeveloperCardOpen(true)}
         />
         <main className="flex-1 flex flex-col min-w-0 bg-[#0b1219]/50 overflow-hidden relative">
           {/* 钢板展开计算器 */}
@@ -194,7 +191,7 @@ function App() {
             <div className="p-6 overflow-hidden h-full">
               <SteelExpansionCalculator />
             </div>
-          ) : selectedCategory !== 'developer_info' ? (
+          ) : (
             <>
               {/* Model Selection & Filters Header */}
               <div className="p-6 pb-2 shrink-0">
@@ -222,7 +219,7 @@ function App() {
                 <DetailView data={selectedData} onOpenCalculator={() => setIsCalculatorOpen(true)} />
               </div>
             </>
-          ) : null}
+          )}
         </main>
       </div>
 

@@ -1,6 +1,7 @@
-export function Sidebar({ selectedCategory, onCategoryChange }: {
+export function Sidebar({ selectedCategory, onCategoryChange, onDeveloperInfoClick }: {
   selectedCategory: string;
-  onCategoryChange: (category: string) => void
+  onCategoryChange: (category: string) => void;
+  onDeveloperInfoClick?: () => void;
 }) {
   const categories = [
     { id: 'hot_rolled_h_beam', name: '热轧H型钢', sub: 'H-Beam', icon: 'table_restaurant' },
@@ -51,7 +52,13 @@ export function Sidebar({ selectedCategory, onCategoryChange }: {
           {tools.map((tool) => (
             <button
               key={tool.id}
-              onClick={() => onCategoryChange(tool.id)}
+              onClick={() => {
+                if (tool.id === 'developer_info' && onDeveloperInfoClick) {
+                  onDeveloperInfoClick();
+                } else {
+                  onCategoryChange(tool.id);
+                }
+              }}
               className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group ${
                 selectedCategory === tool.id
                   ? 'active-nav-item'

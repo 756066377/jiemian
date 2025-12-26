@@ -45,11 +45,18 @@ export interface KFactorInput {
   direction: BendDirection;
 }
 
+export interface BendLine {
+  edge: string;                   // 边名称（A、B或C）
+  position: number;                // 折弯线位置（mm）
+  calculation: string;             // 计算过程
+}
+
 export interface CalculationResult {
   totalLength: number;             // 展开总长
   breakdown: string[];             // 计算明细
   isValid: boolean;                // 是否有效
   warnings: string[];              // 警告信息
+  bendLines?: BendLine[];         // 折弯线位置信息（K-Factor法）
 }
 
 export interface ValidationWarning {
