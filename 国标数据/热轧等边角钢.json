@@ -1,0 +1,937 @@
+{
+  "meta": {
+    "source_file": "热轧等边角钢(摘自GB_T 706-2016).csv",
+    "steel_type": "热轧等边角钢",
+    "standard": "GB/T 706-2016",
+    "record_count": 114,
+    "data_structure": "standard_rows",
+    "field_descriptions": {
+      "model": "型号（如2表示边宽20mm，边宽20mm）",
+      "edge_width_mm": "边宽度b（毫米）",
+      "thickness_mm": "边厚度d（毫米）",
+      "inner_radius_mm": "内圆弧半径r（毫米）",
+      "section_area_cm2": "截面面积（平方厘米）",
+      "theoretical_weight_kg_per_m": "理论重量（千克/米）",
+      "surface_area_m2_per_m": "外表面积（平方米/米）",
+      "Ix_cm4": "X-X轴惯性矩（厘米的四次方）",
+      "ix_cm": "X-X轴惯性半径（厘米）",
+      "Wx_cm3": "X-X轴截面系数（立方厘米）",
+      "Z0_cm": "质心距离Z0（厘米）"
+    },
+    "note": "field_descriptions: 字段含义说明"
+  },
+  "records": [
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 2,
+      "edge_width_mm": 20,
+      "thickness_mm": 3,
+      "inner_radius_mm": 3.5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 2,
+      "edge_width_mm": 20,
+      "thickness_mm": 4,
+      "inner_radius_mm": 3.5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 2.5,
+      "edge_width_mm": 25,
+      "thickness_mm": 3,
+      "inner_radius_mm": 3.5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 2.5,
+      "edge_width_mm": 25,
+      "thickness_mm": 4,
+      "inner_radius_mm": 3.5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 3.0,
+      "edge_width_mm": 30,
+      "thickness_mm": 3,
+      "inner_radius_mm": 4.5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 3.0,
+      "edge_width_mm": 30,
+      "thickness_mm": 4,
+      "inner_radius_mm": 4.5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 3.6,
+      "edge_width_mm": 36,
+      "thickness_mm": 3,
+      "inner_radius_mm": 4.5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 3.6,
+      "edge_width_mm": 36,
+      "thickness_mm": 4,
+      "inner_radius_mm": 4.5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 3.6,
+      "edge_width_mm": 36,
+      "thickness_mm": 5,
+      "inner_radius_mm": 4.5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 4,
+      "edge_width_mm": 40,
+      "thickness_mm": 3,
+      "inner_radius_mm": 5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 4,
+      "edge_width_mm": 40,
+      "thickness_mm": 4,
+      "inner_radius_mm": 5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 4,
+      "edge_width_mm": 40,
+      "thickness_mm": 5,
+      "inner_radius_mm": 5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 4.5,
+      "edge_width_mm": 45,
+      "thickness_mm": 3,
+      "inner_radius_mm": 5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 4.5,
+      "edge_width_mm": 45,
+      "thickness_mm": 4,
+      "inner_radius_mm": 5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 4.5,
+      "edge_width_mm": 45,
+      "thickness_mm": 5,
+      "inner_radius_mm": 5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 4.5,
+      "edge_width_mm": 45,
+      "thickness_mm": 6,
+      "inner_radius_mm": 5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 5,
+      "edge_width_mm": 50,
+      "thickness_mm": 3,
+      "inner_radius_mm": 5.5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 5,
+      "edge_width_mm": 50,
+      "thickness_mm": 4,
+      "inner_radius_mm": 5.5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 5,
+      "edge_width_mm": 50,
+      "thickness_mm": 5,
+      "inner_radius_mm": 5.5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 5,
+      "edge_width_mm": 50,
+      "thickness_mm": 6,
+      "inner_radius_mm": 5.5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 5.6,
+      "edge_width_mm": 56,
+      "thickness_mm": 3,
+      "inner_radius_mm": 6
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 5.6,
+      "edge_width_mm": 56,
+      "thickness_mm": 4,
+      "inner_radius_mm": 6
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 5.6,
+      "edge_width_mm": 56,
+      "thickness_mm": 5,
+      "inner_radius_mm": 6
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 5.6,
+      "edge_width_mm": 56,
+      "thickness_mm": 6,
+      "inner_radius_mm": 6
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 5.6,
+      "edge_width_mm": 56,
+      "thickness_mm": 7,
+      "inner_radius_mm": 6
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 5.6,
+      "edge_width_mm": 56,
+      "thickness_mm": 8,
+      "inner_radius_mm": 6
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 6,
+      "edge_width_mm": 60,
+      "thickness_mm": 5,
+      "inner_radius_mm": 6.5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 6,
+      "edge_width_mm": 60,
+      "thickness_mm": 6,
+      "inner_radius_mm": 6.5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 6,
+      "edge_width_mm": 60,
+      "thickness_mm": 7,
+      "inner_radius_mm": 6.5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 6,
+      "edge_width_mm": 60,
+      "thickness_mm": 8,
+      "inner_radius_mm": 6.5
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 6.3,
+      "edge_width_mm": 63,
+      "thickness_mm": 4,
+      "inner_radius_mm": 7
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 6.3,
+      "edge_width_mm": 63,
+      "thickness_mm": 5,
+      "inner_radius_mm": 7
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 6.3,
+      "edge_width_mm": 63,
+      "thickness_mm": 6,
+      "inner_radius_mm": 7
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 6.3,
+      "edge_width_mm": 63,
+      "thickness_mm": 7,
+      "inner_radius_mm": 7
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 6.3,
+      "edge_width_mm": 63,
+      "thickness_mm": 8,
+      "inner_radius_mm": 7
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 6.3,
+      "edge_width_mm": 63,
+      "thickness_mm": 10,
+      "inner_radius_mm": 7
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 7,
+      "edge_width_mm": 70,
+      "thickness_mm": 4,
+      "inner_radius_mm": 8
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 7,
+      "edge_width_mm": 70,
+      "thickness_mm": 5,
+      "inner_radius_mm": 8
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 7,
+      "edge_width_mm": 70,
+      "thickness_mm": 6,
+      "inner_radius_mm": 8
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 7,
+      "edge_width_mm": 70,
+      "thickness_mm": 7,
+      "inner_radius_mm": 8
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 7,
+      "edge_width_mm": 70,
+      "thickness_mm": 8,
+      "inner_radius_mm": 8
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 7.5,
+      "edge_width_mm": 75,
+      "thickness_mm": 5,
+      "inner_radius_mm": 9
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 7.5,
+      "edge_width_mm": 75,
+      "thickness_mm": 6,
+      "inner_radius_mm": 9
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 7.5,
+      "edge_width_mm": 75,
+      "thickness_mm": 7,
+      "inner_radius_mm": 9
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 7.5,
+      "edge_width_mm": 75,
+      "thickness_mm": 8,
+      "inner_radius_mm": 9
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 7.5,
+      "edge_width_mm": 75,
+      "thickness_mm": 9,
+      "inner_radius_mm": 9
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 7.5,
+      "edge_width_mm": 75,
+      "thickness_mm": 10,
+      "inner_radius_mm": 9
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 8,
+      "edge_width_mm": 80,
+      "thickness_mm": 5,
+      "inner_radius_mm": 9
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 8,
+      "edge_width_mm": 80,
+      "thickness_mm": 6,
+      "inner_radius_mm": 9
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 8,
+      "edge_width_mm": 80,
+      "thickness_mm": 7,
+      "inner_radius_mm": 9
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 8,
+      "edge_width_mm": 80,
+      "thickness_mm": 8,
+      "inner_radius_mm": 9
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 8,
+      "edge_width_mm": 80,
+      "thickness_mm": 9,
+      "inner_radius_mm": 9
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 8,
+      "edge_width_mm": 80,
+      "thickness_mm": 10,
+      "inner_radius_mm": 9
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 9,
+      "edge_width_mm": 90,
+      "thickness_mm": 6,
+      "inner_radius_mm": 10
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 9,
+      "edge_width_mm": 90,
+      "thickness_mm": 7,
+      "inner_radius_mm": 10
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 9,
+      "edge_width_mm": 90,
+      "thickness_mm": 8,
+      "inner_radius_mm": 10
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 9,
+      "edge_width_mm": 90,
+      "thickness_mm": 9,
+      "inner_radius_mm": 10
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 9,
+      "edge_width_mm": 90,
+      "thickness_mm": 10,
+      "inner_radius_mm": 10
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 9,
+      "edge_width_mm": 90,
+      "thickness_mm": 12,
+      "inner_radius_mm": 10
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 10,
+      "edge_width_mm": 100,
+      "thickness_mm": 6,
+      "inner_radius_mm": 12
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 10,
+      "edge_width_mm": 100,
+      "thickness_mm": 7,
+      "inner_radius_mm": 12
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 10,
+      "edge_width_mm": 100,
+      "thickness_mm": 8,
+      "inner_radius_mm": 12
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 10,
+      "edge_width_mm": 100,
+      "thickness_mm": 9,
+      "inner_radius_mm": 12
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 10,
+      "edge_width_mm": 100,
+      "thickness_mm": 10,
+      "inner_radius_mm": 12
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 10,
+      "edge_width_mm": 100,
+      "thickness_mm": 12,
+      "inner_radius_mm": 12
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 10,
+      "edge_width_mm": 100,
+      "thickness_mm": 14,
+      "inner_radius_mm": 12
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 10,
+      "edge_width_mm": 100,
+      "thickness_mm": 16,
+      "inner_radius_mm": 12
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 11,
+      "edge_width_mm": 110,
+      "thickness_mm": 7,
+      "inner_radius_mm": 12
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 11,
+      "edge_width_mm": 110,
+      "thickness_mm": 8,
+      "inner_radius_mm": 12
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 11,
+      "edge_width_mm": 110,
+      "thickness_mm": 10,
+      "inner_radius_mm": 12
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 11,
+      "edge_width_mm": 110,
+      "thickness_mm": 12,
+      "inner_radius_mm": 12
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 11,
+      "edge_width_mm": 110,
+      "thickness_mm": 14,
+      "inner_radius_mm": 12
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 12.5,
+      "edge_width_mm": 125,
+      "thickness_mm": 8,
+      "inner_radius_mm": 14
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 12.5,
+      "edge_width_mm": 125,
+      "thickness_mm": 10,
+      "inner_radius_mm": 14
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 12.5,
+      "edge_width_mm": 125,
+      "thickness_mm": 12,
+      "inner_radius_mm": 14
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 12.5,
+      "edge_width_mm": 125,
+      "thickness_mm": 14,
+      "inner_radius_mm": 14
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 12.5,
+      "edge_width_mm": 125,
+      "thickness_mm": 16,
+      "inner_radius_mm": 14
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 14,
+      "edge_width_mm": 140,
+      "thickness_mm": 10,
+      "inner_radius_mm": 14
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 14,
+      "edge_width_mm": 140,
+      "thickness_mm": 12,
+      "inner_radius_mm": 14
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 14,
+      "edge_width_mm": 140,
+      "thickness_mm": 14,
+      "inner_radius_mm": 14
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 14,
+      "edge_width_mm": 140,
+      "thickness_mm": 16,
+      "inner_radius_mm": 14
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 15,
+      "edge_width_mm": 150,
+      "thickness_mm": 8,
+      "inner_radius_mm": 14
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 15,
+      "edge_width_mm": 150,
+      "thickness_mm": 10,
+      "inner_radius_mm": 14
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 15,
+      "edge_width_mm": 150,
+      "thickness_mm": 12,
+      "inner_radius_mm": 14
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 15,
+      "edge_width_mm": 150,
+      "thickness_mm": 14,
+      "inner_radius_mm": 14
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 15,
+      "edge_width_mm": 150,
+      "thickness_mm": 15,
+      "inner_radius_mm": 14
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 15,
+      "edge_width_mm": 150,
+      "thickness_mm": 16,
+      "inner_radius_mm": 14
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 16,
+      "edge_width_mm": 160,
+      "thickness_mm": 10,
+      "inner_radius_mm": 16
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 16,
+      "edge_width_mm": 160,
+      "thickness_mm": 12,
+      "inner_radius_mm": 16
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 16,
+      "edge_width_mm": 160,
+      "thickness_mm": 14,
+      "inner_radius_mm": 16
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 16,
+      "edge_width_mm": 160,
+      "thickness_mm": 16,
+      "inner_radius_mm": 16
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 18,
+      "edge_width_mm": 180,
+      "thickness_mm": 12,
+      "inner_radius_mm": 16
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 18,
+      "edge_width_mm": 180,
+      "thickness_mm": 14,
+      "inner_radius_mm": 16
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 18,
+      "edge_width_mm": 180,
+      "thickness_mm": 16,
+      "inner_radius_mm": 16
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 18,
+      "edge_width_mm": 180,
+      "thickness_mm": 18,
+      "inner_radius_mm": 16
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 20,
+      "edge_width_mm": 200,
+      "thickness_mm": 14,
+      "inner_radius_mm": 18
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 20,
+      "edge_width_mm": 200,
+      "thickness_mm": 16,
+      "inner_radius_mm": 18
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 20,
+      "edge_width_mm": 200,
+      "thickness_mm": 18,
+      "inner_radius_mm": 18
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 20,
+      "edge_width_mm": 200,
+      "thickness_mm": 20,
+      "inner_radius_mm": 18
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 20,
+      "edge_width_mm": 200,
+      "thickness_mm": 24,
+      "inner_radius_mm": 18
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 22,
+      "edge_width_mm": 220,
+      "thickness_mm": 16,
+      "inner_radius_mm": 21
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 22,
+      "edge_width_mm": 220,
+      "thickness_mm": 18,
+      "inner_radius_mm": 21
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 22,
+      "edge_width_mm": 220,
+      "thickness_mm": 20,
+      "inner_radius_mm": 21
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 22,
+      "edge_width_mm": 220,
+      "thickness_mm": 22,
+      "inner_radius_mm": 21
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 22,
+      "edge_width_mm": 220,
+      "thickness_mm": 24,
+      "inner_radius_mm": 21
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 22,
+      "edge_width_mm": 220,
+      "thickness_mm": 26,
+      "inner_radius_mm": 21
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 25,
+      "edge_width_mm": 250,
+      "thickness_mm": 18,
+      "inner_radius_mm": 24
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 25,
+      "edge_width_mm": 250,
+      "thickness_mm": 20,
+      "inner_radius_mm": 24
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 25,
+      "edge_width_mm": 250,
+      "thickness_mm": 24,
+      "inner_radius_mm": 24
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 25,
+      "edge_width_mm": 250,
+      "thickness_mm": 26,
+      "inner_radius_mm": 24
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 25,
+      "edge_width_mm": 250,
+      "thickness_mm": 28,
+      "inner_radius_mm": 24
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 25,
+      "edge_width_mm": 250,
+      "thickness_mm": 30,
+      "inner_radius_mm": 24
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 25,
+      "edge_width_mm": 250,
+      "thickness_mm": 32,
+      "inner_radius_mm": 24
+    },
+    {
+      "steel_type": "hot_rolled_equal_angle",
+      "standard": "GB/T 706-2016",
+      "model": 25,
+      "edge_width_mm": 250,
+      "thickness_mm": 35,
+      "inner_radius_mm": 24
+    }
+  ]
+}

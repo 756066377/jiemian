@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>截面特性查询 - 桌面平台</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "glass-border": "rgba(255, 255, 255, 0.08)",
+                        "glass-bg": "rgba(35, 54, 72, 0.4)",
+                        "glass-highlight": "rgba(255, 255, 255, 0.03)"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "Noto Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px" },
+                    backdropBlur: {
+                        xs: '2px',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #233648; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #344c64; 
+        }
+
+        /* Glassmorphism Utilities */
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .glass-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            background: linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+            border-color: rgba(19, 127, 236, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .active-nav-item {
+            background: rgba(19, 127, 236, 0.15);
+            border-left: 3px solid #137fec;
+            color: white;
+        }
+        
+        /* Subtle grid background */
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-[#111a22] text-white font-body overflow-hidden h-screen flex flex-col bg-grid-pattern">
+<!-- Top Navigation -->
+<header class="h-16 shrink-0 glass-panel z-20 flex items-center justify-between px-6 border-b border-glass-border">
+<div class="flex items-center gap-3">
+<div class="size-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-xl">architecture</span>
+</div>
+<div>
+<h1 class="font-display font-bold text-lg tracking-tight">SteelLibrary <span class="text-primary">Pro</span></h1>
+<p class="text-xs text-slate-400 -mt-1">截面特性查询系统</p>
+</div>
+</div>
+
+
+</header>
+<div class="flex flex-1 overflow-hidden relative">
+<!-- Sidebar Navigation -->
+<aside class="w-64 glass-panel border-r border-glass-border flex flex-col z-10 hidden md:flex">
+<div class="p-4 pb-2">
+<p class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3 px-2">选择类别 (Category)</p>
+<div class="space-y-1">
+<button class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg active-nav-item transition-all group">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">table_restaurant</span>
+<div class="text-left">
+<p class="text-sm font-medium">热轧H型钢</p>
+<p class="text-[10px] opacity-60">H-Beam</p>
+</div>
+</button>
+<button class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/5 text-slate-400 hover:text-white transition-all group">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">horizontal_rule</span>
+<div class="text-left">
+<p class="text-sm font-medium">热轧扁钢</p>
+<p class="text-[10px] opacity-60">Flat Steel</p>
+</div>
+</button>
+<button class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/5 text-slate-400 hover:text-white transition-all group">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">border_left</span>
+<div class="text-left">
+<p class="text-sm font-medium">热轧不等边角钢</p>
+<p class="text-[10px] opacity-60">Unequal Angle</p>
+</div>
+</button>
+<button class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/5 text-slate-400 hover:text-white transition-all group">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">call_to_action</span>
+<div class="text-left">
+<p class="text-sm font-medium">热轧槽钢</p>
+<p class="text-[10px] opacity-60">Channel Steel</p>
+</div>
+</button>
+<button class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/5 text-slate-400 hover:text-white transition-all group">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">crop_square</span>
+<div class="text-left">
+<p class="text-sm font-medium">热轧等边角钢</p>
+<p class="text-[10px] opacity-60">Equal Angle</p>
+</div>
+</button>
+<button class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/5 text-slate-400 hover:text-white transition-all group">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">view_week</span>
+<div class="text-left">
+<p class="text-sm font-medium">热轧工字钢</p>
+<p class="text-[10px] opacity-60">I-Beam</p>
+</div>
+</button>
+</div>
+</div>
+<div class="mt-auto p-4 border-t border-white/5">
+<div class="bg-gradient-to-br from-primary/20 to-transparent p-4 rounded-xl border border-primary/20">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-sm">info</span>
+<span class="text-xs font-bold text-primary">当前标准</span>
+</div>
+<p class="text-xs text-slate-300">GB/T 706-2016</p>
+<p class="text-[10px] text-slate-500 mt-1">热轧型钢国家标准</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 bg-[#0b1219]/50 overflow-hidden">
+<!-- Model Selection & Filters Header -->
+<div class="p-6 pb-2 shrink-0">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+<div>
+<h2 class="text-2xl font-display font-bold text-white flex items-center gap-2">
+                            热轧H型钢
+                            <span class="text-sm font-normal text-slate-400 bg-white/5 px-2 py-0.5 rounded border border-white/5">GB Standard</span>
+</h2>
+<p class="text-slate-400 text-sm mt-1">请选择具体型号以查看截面特性数据。</p>
+</div>
+<!-- Search Bar -->
+<div class="relative w-full md:w-80 group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2.5 border border-white/10 rounded-xl leading-5 bg-[#1e293b]/50 text-slate-100 placeholder-slate-500 focus:outline-none focus:bg-[#1e293b] focus:border-primary/50 focus:ring-1 focus:ring-primary/50 sm:text-sm transition-all shadow-inner" placeholder="搜索型号 (如: H596×199×10×15)..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-2 flex items-center">
+<kbd class="hidden sm:inline-block border border-gray-600 rounded px-2 text-xs font-sans font-medium text-gray-400">Ctrl K</kbd>
+</div>
+</div>
+</div>
+<!-- Chips / Quick Filters -->
+<div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+<button class="px-3 py-1.5 rounded-lg bg-primary text-white text-xs font-medium border border-primary">全部型号</button>
+<button class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-medium border border-white/5 transition-colors">HW（宽翼缘）</button>
+<button class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-medium border border-white/5 transition-colors">HM（中翼缘）</button>
+<button class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-medium border border-white/5 transition-colors">HN（窄翼缘）</button>
+<button class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-medium border border-white/5 transition-colors">HT（薄壁）</button>
+</div>
+</div>
+<!-- Content Split: List & Detail -->
+<div class="flex-1 flex overflow-hidden px-6 pb-6 gap-6">
+<!-- Model List Column -->
+<div class="w-48 shrink-0 flex flex-col overflow-hidden glass-panel rounded-xl">
+<div class="p-3 border-b border-white/5 bg-white/5">
+<span class="text-xs font-bold text-slate-400 uppercase">Model No.</span>
+</div>
+<div class="overflow-y-auto p-2 space-y-1 h-full">
+<button class="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-400 hover:bg-white/5 hover:text-white transition-colors">HW100×100</button>
+<button class="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-400 hover:bg-white/5 hover:text-white transition-colors">HW125×125</button>
+<button class="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-400 hover:bg-white/5 hover:text-white transition-colors">HW150×150</button>
+<button class="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-400 hover:bg-white/5 hover:text-white transition-colors">HW175×175</button>
+<button class="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-400 hover:bg-white/5 hover:text-white transition-colors">HW200×200</button>
+<button class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium bg-primary/20 text-primary border border-primary/30 shadow-sm">H596×199×10×15</button>
+<button class="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-400 hover:bg-white/5 hover:text-white transition-colors">HM300×200</button>
+<button class="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-400 hover:bg-white/5 hover:text-white transition-colors">HM350×250</button>
+<button class="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-400 hover:bg-white/5 hover:text-white transition-colors">HN300×150</button>
+<button class="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-400 hover:bg-white/5 hover:text-white transition-colors">HN350×175</button>
+<button class="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-400 hover:bg-white/5 hover:text-white transition-colors">HN400×200</button>
+<button class="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-400 hover:bg-white/5 hover:text-white transition-colors">HN500×200</button>
+</div>
+</div>
+<!-- Detail View Area -->
+<div class="flex-1 flex flex-col glass-panel rounded-xl overflow-hidden">
+<!-- Detail Header -->
+<div class="px-6 py-4 border-b border-white/5 flex justify-between items-center bg-white/[0.02]">
+<div>
+<h3 class="text-xl font-bold font-display text-white">H-Beam H596×199×10×15</h3>
+<p class="text-xs text-slate-400 font-mono mt-1">GB/T 11263-2010 • Hot-rolled steel</p>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/10 hover:bg-white/5 text-xs text-slate-300 transition-colors">
+<span class="material-symbols-outlined text-base">download</span>
+                                Export PDF
+                            </button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary hover:bg-primary/90 text-white text-xs font-medium transition-colors shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-base">calculate</span>
+                                Calculators
+                            </button>
+</div>
+</div>
+<!-- Detail Content Scrollable -->
+<div class="flex-1 overflow-y-auto p-6">
+<div class="flex flex-col xl:flex-row gap-8">
+<!-- Left: Visual Diagram -->
+<div class="w-full xl:w-1/3 flex flex-col gap-4">
+<div class="aspect-square bg-[#0f151c] rounded-2xl border border-white/10 relative flex items-center justify-center p-8 group overflow-hidden">
+<!-- Subtle Grid for Diagram -->
+<div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(#334155 1px, transparent 1px), linear-gradient(90deg, #334155 1px, transparent 1px); background-size: 20px 20px;"></div>
+<!-- SVG Diagram Placeholder representing H-Beam Section -->
+<svg class="w-full h-full drop-shadow-[0_0_15px_rgba(19,127,236,0.3)] transition-transform duration-500 group-hover:scale-105" data-alt="Technical drawing of H-Beam cross section with dimension labels" viewbox="0 0 200 200">
+<!-- H-Beam Shape -->
+<path d="M55 40 L145 40 L145 50 L95 50 L95 150 L145 150 L145 160 L55 160 L55 150 L105 150 L105 50 L55 50 Z" fill="#1e293b" stroke="#137fec" stroke-width="2"></path>
+<!-- Dimension Lines -->
+<line stroke="#64748b" stroke-dasharray="4" stroke-width="1" x1="150" x2="150" y1="40" y2="160"></line>
+<text fill="#94a3b8" font-family="monospace" font-size="12" x="160" y="105">H=596</text>
+<line stroke="#64748b" stroke-dasharray="4" stroke-width="1" x1="55" x2="145" y1="30" y2="30"></line>
+<text fill="#94a3b8" font-family="monospace" font-size="12" x="85" y="20">B=199</text>
+<line stroke="#64748b" stroke-dasharray="4" stroke-width="1" x1="95" x2="105" y1="55" y2="145"></line>
+<text fill="#94a3b8" font-family="monospace" font-size="10" x="115" y="105">t1</text>
+<line stroke="#64748b" stroke-dasharray="4" stroke-width="1" x1="95" x2="145" y1="45" y2="45"></line>
+<text fill="#94a3b8" font-family="monospace" font-size="10" x="90" y="40">t2</text>
+</svg>
+</div>
+<div class="glass-card p-4 rounded-xl">
+<h4 class="text-sm font-semibold text-slate-200 mb-3 border-b border-white/5 pb-2">几何尺寸 (Geometric Size)</h4>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-xs text-slate-500">高度 (H)</p>
+<p class="text-lg font-mono text-white">596 <span class="text-xs text-slate-500">mm</span></p>
+</div>
+<div>
+<p class="text-xs text-slate-500">宽度 (B)</p>
+<p class="text-lg font-mono text-white">199 <span class="text-xs text-slate-500">mm</span></p>
+</div>
+<div>
+<p class="text-xs text-slate-500">腹板厚 (t1)</p>
+<p class="text-lg font-mono text-white">10 <span class="text-xs text-slate-500">mm</span></p>
+</div>
+<div>
+<p class="text-xs text-slate-500">翼缘厚 (t2)</p>
+<p class="text-lg font-mono text-white">15 <span class="text-xs text-slate-500">mm</span></p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Detailed Properties Table -->
+<div class="w-full xl:w-2/3 flex flex-col gap-6">
+<!-- Key Performance Indicators -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="glass-card p-4 rounded-xl border-l-4 border-l-primary/60">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary text-sm">scale</span>
+<p class="text-xs text-slate-400 uppercase tracking-wide">理论重量</p>
+</div>
+<p class="text-2xl font-bold text-white font-mono">115.0</p>
+<p class="text-xs text-slate-500">kg/m</p>
+</div>
+<div class="glass-card p-4 rounded-xl">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-blue-400 text-sm">square_foot</span>
+<p class="text-xs text-slate-400 uppercase tracking-wide">截面面积 (A)</p>
+</div>
+<p class="text-2xl font-bold text-white font-mono">147.0</p>
+<p class="text-xs text-slate-500">cm²</p>
+</div>
+<div class="glass-card p-4 rounded-xl">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-purple-400 text-sm">rotate_90_degrees_cw</span>
+<p class="text-xs text-slate-400 uppercase tracking-wide">惯性矩 (Ix)</p>
+</div>
+<p class="text-2xl font-bold text-white font-mono">68300</p>
+<p class="text-xs text-slate-500">cm⁴</p>
+</div>
+<div class="glass-card p-4 rounded-xl">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-green-400 text-sm">rotate_90_degrees_ccw</span>
+<p class="text-xs text-slate-400 uppercase tracking-wide">惯性矩 (Iy)</p>
+</div>
+<p class="text-2xl font-bold text-white font-mono">1980</p>
+<p class="text-xs text-slate-500">cm⁴</p>
+</div>
+</div>
+<!-- Detailed Data Table -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col flex-1 min-h-[300px]">
+<div class="flex items-center justify-between px-6 py-4 border-b border-white/5 bg-white/[0.02]">
+<h4 class="text-sm font-semibold text-slate-200">详细力学性能参数 (Static Parameters)</h4>
+<div class="flex gap-2">
+<button class="p-1 hover:bg-white/10 rounded transition-colors text-slate-400 hover:text-white" title="Copy Data">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+<button class="p-1 hover:bg-white/10 rounded transition-colors text-slate-400 hover:text-white" title="Settings">
+<span class="material-symbols-outlined text-sm">tune</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm text-slate-400">
+<thead class="bg-white/[0.02] text-xs uppercase text-slate-500">
+<tr>
+<th class="px-6 py-3 font-medium" scope="col">Parameter</th>
+<th class="px-6 py-3 font-medium" scope="col">Symbol</th>
+<th class="px-6 py-3 font-medium text-right" scope="col">Value</th>
+<th class="px-6 py-3 font-medium text-right" scope="col">Unit</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5 font-mono">
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-3 font-sans">截面模量 (Major Axis)</td>
+<td class="px-6 py-3 text-primary">Wx</td>
+<td class="px-6 py-3 text-white text-right">2290</td>
+<td class="px-6 py-3 text-right">cm³</td>
+</tr>
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-3 font-sans">截面模量 (Minor Axis)</td>
+<td class="px-6 py-3 text-primary">Wy</td>
+<td class="px-6 py-3 text-white text-right">199</td>
+<td class="px-6 py-3 text-right">cm³</td>
+</tr>
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-3 font-sans">回转半径 (Major Axis)</td>
+<td class="px-6 py-3 text-primary">ix</td>
+<td class="px-6 py-3 text-white text-right">21.6</td>
+<td class="px-6 py-3 text-right">cm</td>
+</tr>
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-3 font-sans">回转半径 (Minor Axis)</td>
+<td class="px-6 py-3 text-primary">iy</td>
+<td class="px-6 py-3 text-white text-right">3.67</td>
+<td class="px-6 py-3 text-right">cm</td>
+</tr>
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-3 font-sans">圆角半径</td>
+<td class="px-6 py-3 text-primary">r</td>
+<td class="px-6 py-3 text-white text-right">24</td>
+<td class="px-6 py-3 text-right">mm</td>
+</tr>
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-3 font-sans">外表面积</td>
+<td class="px-6 py-3 text-primary">S</td>
+<td class="px-6 py-3 text-white text-right">1.91</td>
+<td class="px-6 py-3 text-right">m²/m</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
