@@ -152,12 +152,8 @@ function SteelGradeCard({ data, formatGrades }: { data: SteelGrade; formatGrades
         </div>
         {/* 次要中国标准牌号 */}
         {subTitle && (
-          <p className="text-sm text-slate-400 mb-1">{subTitle}</p>
+          <p className="text-sm text-slate-400">{subTitle}</p>
         )}
-        {/* DIN标准信息 */}
-        <p className="text-xs text-slate-500">
-          DIN: {data.name} ({data.id})
-        </p>
       </div>
 
       {/* 内容 */}
@@ -170,6 +166,10 @@ function SteelGradeCard({ data, formatGrades }: { data: SteelGrade; formatGrades
           <div className="flex flex-col">
             <span className="text-xs text-slate-500 uppercase font-semibold mb-1">美国标准 (AISI/ASTM)</span>
             <span className="text-slate-300 font-medium">{formatGrades(data.us)}</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-xs text-slate-500 uppercase font-semibold mb-1">德国标准 (DIN)</span>
+            <span className="text-slate-300 font-medium">{data.name} ({data.id})</span>
           </div>
         </div>
       </div>
