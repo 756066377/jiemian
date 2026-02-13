@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect, useCallback } from 'react';
-import { Header, Sidebar, FilterBar, ModelList, DetailView, HBeamCalculatorModal, SteelExpansionCalculator, DeveloperCard } from './components';
+import { Header, Sidebar, FilterBar, ModelList, DetailView, HBeamCalculatorModal, SteelExpansionCalculator, DeveloperCard, SteelGradeQuery } from './components';
 import { hbeamData } from './data/hbeamData';
 import { flatSteelData } from './data/flatSteelData';
 import { equalAngleData } from './data/equalAngleData';
@@ -190,6 +190,10 @@ function App() {
           {selectedCategory === 'steel_expansion_calculator' ? (
             <div className="p-6 overflow-hidden h-full">
               <SteelExpansionCalculator />
+            </div>
+          ) : selectedCategory === 'steel_grade_query' ? (
+            <div className="p-6 overflow-hidden h-full">
+              <SteelGradeQuery />
             </div>
           ) : (
             <>

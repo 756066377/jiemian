@@ -13,6 +13,7 @@ export function Sidebar({ selectedCategory, onCategoryChange, onDeveloperInfoCli
 
   const tools = [
     { id: 'steel_expansion_calculator', name: '钢板展开计算', sub: 'Expansion Calculator', icon: 'architecture' },
+    { id: 'steel_grade_query', name: '钢铁牌号查询', sub: 'Steel Grade Query', icon: 'search' },
     { id: 'developer_info', name: '开发者信息', sub: 'Developer Info', icon: 'person' },
   ];
 
